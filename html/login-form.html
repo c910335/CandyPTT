@@ -1,0 +1,29 @@
+<form id="login">
+  <div class="form-group label-floating">
+    <label for="account" class="control-label">PTT帳號</label>
+    <input class="form-control" id="account" name="account" />
+  </div>
+  <div class="form-group label-floating">
+    <label for="password" class="control-label">PTT密碼</label>
+    <input type="password" class="form-control" id="password" name="password" />
+  </div>
+  <div class="checkbox">
+    <label for="auto-login">
+      <input type="checkbox" id="auto-login" name="auto-login" /> 自動登入
+    </label>
+  </div>
+  <button type="submit" class="btn btn-raised btn-primary" data-loading-text="登入中..." autocomplete="off">登入</button>
+  <div class="modal" id="ask-del-other" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-middle">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">刪除其他重複的連線嗎？</h4>
+        </div>
+        <div class="modal-footer">
+          <button id="keep-other" type="button" class="btn btn-default btn-full-width">否</button>
+          <button id="del-other" type="button" class="btn btn-primary">是</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

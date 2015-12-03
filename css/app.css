@@ -1,0 +1,150 @@
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.navbar-toggle {
+  margin-right: 8px;
+}
+.container {
+  padding-top: 65px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.modal-middle {
+  margin-top: 65px;
+}
+.btn-full-width {
+  width: 100%;
+}
+#menu-btn-group {
+  margin: 0;
+}
+#menu-modal-content {
+  display: inline-block;
+  float: right;
+}
+.about-key {
+  color: #777777;
+}
+.about-value {
+  margin: 0;
+  padding-left: 15px;
+}
+.board {
+  padding: 5px 10px;
+  margin: 0px 0px 5px;
+  border-left: 5px solid #009688;
+}
+.board-title {
+  margin: 0px;
+}
+.board-unread {
+  color: #009688;
+}
+.board-popularity {
+  background-color: #009688;
+  margin: 5px 0px;
+}
+.post-left {
+  display: inline-block;
+  padding-left: 15px;
+}
+.post-right {
+  display: inline-block;
+  position: absolute;
+  left: 55px;
+  right: 15px;
+}
+.post-left-bottom {
+  margin: 0px;
+}
+.post-title {
+  margin: 0px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.post-status {
+  width: 8px;
+  display: inline-block;
+}
+.post-read {
+  color: #777777;
+}
+.post-like {
+  width: 16px;
+  display: inline-block;
+  text-align: right;
+}
+.post-like-bomb {
+  color: #D32F2F;
+}
+.post-like-xx {
+  color: #777777;
+}
+.post-like-digit {
+  color: #689F38;
+}
+.post-like-two-digits {
+  color: #FBC02D;
+}
+hr {
+  margin: 5px 0px 0px;
+  border-color: #D2D2D2;
+}
+#loading-posts {
+  position: relative;
+  height: 60px;
+}
+#main-content {
+  white-space: pre-line;
+  word-wrap: break-word;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+.article-title {
+  font-size: 120%;
+  color: #009688;
+}
+.article-time, .article-author {
+  font-size: 85%;
+  color: #777777
+}
+.push {
+  white-space: normal;
+}
+.push-top {
+  position: relative;
+  color: #777777;
+}
+.push-ipdatetime {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+}
+.push-content {
+  white-space: pre-line;
+  word-wrap: break-word;
+  color: #009688;
+}
+.push-tag-push {
+  color: #689F38;
+}
+.push-tag-arrow {
+  color: #FFA000;
+}
+.push-tag-boo {
+  color: #D32F2F;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0px, 0px, 0px, 0px);
+  border: 0px none;
+}
