@@ -2,13 +2,25 @@ html, body {
   max-width: 100%;
   overflow-x: hidden;
 }
-.navbar-toggle {
-  margin-right: 8px;
+#home i {
+  padding: 3px 0px;
 }
-.container {
-  padding-top: 65px;
+.navbar-toggle {
+  padding: 0px;
+  margin: 13px;
+  height: 24px;
+}
+#container {
+  padding-top: 60px;
   padding-right: 10px;
   padding-left: 10px;
+}
+.footer {
+  position: fixed;
+  bottom: 0px;
+  left: 10px;
+  right: 10px;
+  background-color: #EEEEEE;
 }
 .modal-middle {
   margin-top: 65px;
@@ -91,6 +103,29 @@ html, body {
 hr {
   margin: 5px 0px 0px;
   border-color: #D2D2D2;
+}
+#btn-new-post {
+  position: fixed !important;
+  z-index: 10;
+  right: 10px;
+  bottom: 10px;
+}
+#new-post-dialog {
+  position: fixed!important;
+  margin: 0px;
+  padding: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+#new-post {
+  padding: 0px 10px;
+  overflow: auto;
+}
+#btn-save-post {
+  position: absolute;
+  right: 10px;
+  top: -66px;
 }
 #loading-posts {
   position: relative;

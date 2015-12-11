@@ -5,7 +5,7 @@
   resetHomeButton = function() {
     $('#home').unbind('click');
     $('#home').children('small').remove();
-    return $('#home').children('span').remove();
+    return $('#home').children('i').remove();
   };
 
   disconnect = function() {
@@ -87,7 +87,7 @@
       }
     });
     $('iframe').parent().remove();
-    return $.get('html/push.html', function(pushHTML) {
+    $.get('html/push.html', function(pushHTML) {
       return $('.push').each(function() {
         var push, pushContent, pushTag;
         push = $(this)[0].outerHTML;
@@ -107,6 +107,16 @@
         if (!pushContent.match(/^:*$/)) {
           return $(this).find('.push-content').html(pushContent.match(/^:((.|\n)*)$/)[1]);
         }
+      });
+    }, 'html');
+    return $.get('html/new-push.html', function(newPushHtml) {
+      var pushTag;
+      pushTag = 'push-tag-push';
+      $('#container').append(newPushHtml);
+      return $('#new-push-tag select').change(function() {
+        $(this).removeClass(pushTag);
+        pushTag = $(this).children('option:selected').attr('class');
+        return $(this).addClass(pushTag);
       });
     }, 'html');
   };
@@ -183,15 +193,37 @@
       num = $(this).attr('id');
       return showPost(num);
     });
+    $('#btn-save-post').click(function() {
+      var content, title;
+      title = $('#new-post-title').val();
+      content = $('#new-post-content').val();
+      $('#new-post-title').val('');
+      $('#new-post-content').val('');
+      $('#new-post-modal').modal('hide');
+      if (title === '') {
+        return;
+      }
+      return $.post(window.url + '/post', {
+        token: window.token,
+        title: title,
+        content: content
+      }, function(data) {
+        return postsSession();
+      }, 'json').fail(failNoLogout);
+    });
+    $('#new-post-modal').on('hidden.bs.modal', function() {
+      return $('#home').focus();
+    });
     $('#container').append('<div id="loading-posts"></div>');
     postsSpinner = new Spinner().spin();
     $('#loading-posts').html(postsSpinner.el);
-    return $('#loading-posts').one('inview', function() {
+    $('#loading-posts').one('inview', function() {
       return loadPosts(function() {
         postsSpinner.stop();
         return $('#loading-posts').remove();
       });
     });
+    return $.material.init();
   };
 
   loadPosts = function(preDone, postDone) {
@@ -241,7 +273,7 @@
     }).fail(failNoLogout);
   };
 
-  postsSession = function(boardName) {
+  postsSession = function() {
     showLoading();
     return $.ajax({
       url: window.url + '/enter',
@@ -249,11 +281,12 @@
       dataType: 'json',
       data: {
         token: window.token,
-        board: boardName
+        board: window.board
       }
     }).done(function(data) {
       resetHomeButton();
-      $('#home').prepend('<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>');
+      window.board = data.board;
+      $('#home').prepend('<i class="material-icons">arrow_back</i>');
       $('#home').append('<small>' + data.board + '</small>').click(function(event) {
         event.preventDefault();
         resetHomeButton();
@@ -261,8 +294,11 @@
       });
       window.posts = [];
       window.postNum = 0;
-      loadPosts(null, hideLoading);
-      return $('#container').html('<div id="posts"></div>');
+      $('#container').html('<div id="posts"></div>');
+      $.get('html/new-post.html', function(newPostHtml) {
+        return $('#container').prepend(newPostHtml);
+      }, 'html');
+      return loadPosts(null, hideLoading);
     }).fail(failNoLogout);
   };
 
@@ -292,7 +328,8 @@
         $('.board').click(function() {
           var num;
           num = $(this).attr('id');
-          return postsSession(window.favorites[num].en_name);
+          window.board = window.favorites[num].en_name;
+          return postsSession();
         });
         hideLoading();
         return $.material.init();
@@ -362,7 +399,7 @@
     account = localStorage.getItem('account');
     password = localStorage.getItem('password');
     return $('#container').load('html/login-form.html', function() {
-      $('#home').prepend('<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>').click(function(event) {
+      $('#home').prepend('<i class="material-icons">arrow_back</i>').click(function(event) {
         event.preventDefault();
         return disconnect();
       });
