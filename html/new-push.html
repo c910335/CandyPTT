@@ -1,18 +1,18 @@
 <footer class="footer">
-  <form id="new-push">
-    <div class="input-group" style="width: 100%;">
-      <div id="new-push-tag" class="form-group" style="display: inline-block; padding: 0px; margin: 0px;">
-        <select class="form-control push-tag-push" name="new-push-tag" style="padding: 0px; margin: 0px;">
-          <option class="push-tag-push">推</option>
-          <option class="push-tag-arrow">→</option>
-          <option class="push-tag-boo">噓</option>
+  <form id="new-push-form">
+    <div id="new-push" class="input-group">
+      <div id="new-push-tag" class="form-group">
+        <select class="form-control push-tag-push" name="new-push-tag">
+          <option class="push-tag-push" value="1">推</option>
+          <option class="push-tag-arrow" value="2">→</option>
+          <option class="push-tag-boo" value="3">噓</option>
         </select>
       </div>
-      <div class="form-group" style="display: inline-block; position: absolute; left: 24px; right: 24px; padding: 0px; margin: 0px;">
-        <input type="text" class="form-control" style="padding: 0px; margin: 0px;"/>
+      <div id="new-push-content" class="form-group">
+        <input type="text" class="form-control" />
       </div>
-      <span class="input-group-btn" style="padding: 0px">
-        <button class="btn btn-primary" type="submit" style="padding: 0px; margin: 0px;"><i class="material-icons">send</i></button>
+      <span id="new-push-send" class="input-group-btn">
+        <button class="btn btn-primary" type="submit"><i class="material-icons">send</i></button>
       </span>
     </div>
   </form>

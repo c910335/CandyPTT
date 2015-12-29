@@ -14,9 +14,8 @@
     <link rel="stylesheet" href="css/lib/bootstrap-material-design.min.css" />
     <link rel="stylesheet" href="css/lib/toastr.min.css" />
     <link rel="stylesheet" href="css/lib/ripples.min.css" />
-    
     <link rel="stylesheet" href="css/app.css" />
-    
+
     <!-- Scripts -->
     <script src="js/lib/jquery.min.js"></script>
     <script src="js/lib/bootstrap.min.js"></script>
@@ -25,26 +24,24 @@
     <script src="js/lib/toastr.min.js"></script>
     <script src="js/lib/spin.min.js"></script>
     <script src="js/lib/jquery.inview.min.js"></script>
-    <script src="js/app.js" defer></script>
+    <script src="js/lib/autolink.min.js"></script>
+    <script src="js/app.js"></script>
   </head>
 
   <body style="height: 100%">
     <nav class="navbar navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="modal" data-target="#menu" aria-expanded="false">
-            <i class="material-icons">more_vert</i>
-          </button>
-          <a id="home" class="navbar-brand" href="#">
-            CandyPTT
-          </a>
-        </div>
-      </div>
+      <a id="home" class="navbar-brand" href="#">
+        CandyPTT
+      </a>
+      <button type="button" id="menu-button" data-toggle="modal" data-target="#menu" aria-expanded="false">
+        <i class="material-icons">more_vert</i>
+      </button>
     </nav>
     <div id="menu" class="modal">
       <div class="modal-dialog">
         <div id="menu-modal-content" class="modal-content">
           <div id="menu-btn-group" class="btn-group-vertical" role="group">
+            <button id="enter-board-button" type="button" class="sr-only btn btn-primary">進入看板</button>
             <button id="about-button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#about" data-dismiss="modal">關於</button>
             <button id="logout-button" type="button" class="sr-only btn btn-default" data-dismiss="modal">登出</button>
           </div>
@@ -52,14 +49,14 @@
       </div>
     </div>
     <div id="about" class="modal">
-      <div class="modal-dialog modal-middle">
-        <div class="modal-content">
+      <div class="modal-dialog">
+        <div class="modal-content modal-middle">
           <div class="modal-header">
             <h4 class="modal-title">關於</h4>
           </div>
           <div  class="modal-body">
             <small class="about-key">Version</small>
-            <p class="about-value">0.5</p>
+            <p class="about-value">1.0</p>
             <small class="about-key">License</small>
             <p class="about-value">MIT License</p>
             <small class="about-key">Github</small>
